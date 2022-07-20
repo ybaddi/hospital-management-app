@@ -1,10 +1,9 @@
 package com.example.hospitalmanagementapp.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Appointment {
 
     @Id
@@ -12,5 +11,10 @@ public class Appointment {
     private long id;
     private LocalDate date;
     private int duree;
+
+    private boolean validated;
+
+    @OneToOne
+    @JoinColumn(name="patient_id", nullable = false)
     private Patient patient;
 }

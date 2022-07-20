@@ -20,7 +20,8 @@ public class Patient {
     @OneToMany()
     private Set<Appointment> appointmentList;
 
+    @OneToOne
+    @JoinColumn(name="patientFolder_id", nullable = true)
     private PatientFolder patientFolder;
-
 
 }
