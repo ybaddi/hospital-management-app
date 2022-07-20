@@ -1,6 +1,7 @@
 package com.example.hospitalmanagementapp.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="patient")
@@ -10,9 +11,16 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
+    private int matricule;
     private String firstName;
     private String secondName;
     private String email;
     private String gender;
+
+    @OneToMany()
+    private Set<Appointment> appointmentList;
+
+    private PatientFolder patientFolder;
+
+
 }
